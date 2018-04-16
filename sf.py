@@ -97,6 +97,73 @@ sfOptdescs = {
     '_modulesenabled': "Modules enabled for the scan."  # This is a hack to get a description for an option not actually available.
 }
 
+module_cat = {
+    'sfp_ahmia': ['Passive']
+    'sfp_bingsharedip': ['Passive']
+    'sfp_builtwith': ['Passive']
+    'sfp_censys': ['Passive']
+    'sfp_clearbit': ['Passive']
+    'sfp_crossref': ['Passive']
+    'sfp_crt': ['Passive']
+    'sfp_dnsneighbor': ['Passive','Quick']
+    'sfp_dnsraw': ['Passive','Quick']
+    'sfp_dnsresolve': ['Passive','Quick']
+    'sfp_duckduckgo': ['Passive']
+    'sfp_email': ['Passive']
+    'sfp_freegeoip': ['Passive','Quick']
+    'sfp_googlemaps': ['Passive','Quick']
+    'sfp_hackertarget': ['Passive']
+    'sfp_hosting': ['Passive','Quick']
+    'sfp_ipinfo': ['Passive','Quick']
+    'sfp_multiproxy': ['Passive']
+    'sfp_pastebin': ['Passive']
+    'sfp_pastie': ['Passive']
+    'sfp_ripe': ['Passive','Quick']
+    'sfp_robtex': ['Passive','Quick']
+    'sfp_shodan': ['Passive','Quick']
+    'sfp_sorbs': ['Passive']
+    'sfp_spamcop': ['Passive']
+    'sfp_spamhaus': ['Passive']
+    'sfp_threatcrowd': ['Passive','Quick']
+    'sfp_torch': ['Passive']
+    'sfp_torexits': ['Passive']
+    'sfp_torserver': ['Passive']
+    'sfp_uceprotect': ['Passive']
+    'sfp_whois': ['Passive','Quick']
+
+    'sfp_abusech': ['Reputation']
+    'sfp_alienvault': ['Reputation']
+    'sfp_alienvaultiprep': ['Reputation']
+    'sfp_badipscom': ['Reputation']
+    'sfp_bitcash': ['Reputation']
+    'sfp_blocklistde': ['Reputation']
+    'sfp_botscout': ['Reputation']
+    'sfp_cybercrimetracker': ['Reputation']
+    'sfp_dronebl': ['Reputation']
+    'sfp_fortinet': ['Reputation']
+    'sfp_fraudguard': ['Reputation']
+    'sfp_honeypot': ['Reputation']
+    'sfp_hostsfilenet': ['Reputation']
+    'sfp_isc': ['Reputation']
+    'sfp_malc0de': ['Reputation']
+    'sfp_malwaredomainlist': ['Reputation']
+    'sfp_malwaredomains': ['Reputation']
+    'sfp_malwarepatrol': ['Reputation']
+    'sfp_mcafee': ['Reputation']
+    'sfp_nothink': ['Reputation']
+    'sfp_phishtank': ['Reputation']
+    'sfp_psbdmp': ['Reputation']
+    'sfp_pwned': ['Reputation']
+    'sfp_threatcrowd': ['Reputation']
+    'sfp_threatexpert': ['Reputation']
+    'sfp_totalhash': ['Reputation']
+    'sfp_virustotal': ['Reputation']
+    'sfp_vxvault': ['Reputation']
+    'sfp_watchguard': ['Reputation']
+    'sfp_xforce': ['Reputation']
+}
+
+
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         (addr, port) = sys.argv[1].split(":")
@@ -119,7 +186,7 @@ if __name__ == '__main__':
             mod = __import__('modules.' + modName, globals(), locals(), [modName])
             sfModules[modName]['object'] = getattr(mod, modName)()
             sfModules[modName]['name'] = sfModules[modName]['object'].__doc__.split(":", 5)[0]
-            sfModules[modName]['cats'] = sfModules[modName]['object'].__doc__.split(":", 5)[1].split(",")
+            sfModules[modName]['cats'] = module_cat[modName]
             sfModules[modName]['group'] = sfModules[modName]['object'].__doc__.split(":", 5)[2]
             sfModules[modName]['labels'] = sfModules[modName]['object'].__doc__.split(":", 5)[3].split(",")
             sfModules[modName]['descr'] = sfModules[modName]['object'].__doc__.split(":", 5)[4]
