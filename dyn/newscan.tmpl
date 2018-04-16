@@ -68,12 +68,12 @@
         </ul>
         <table class="table table-striped table-condensed" id="usetable">
             <tr><td><input type=radio name='usecase' value='all' id="usecase_all" checked></td><td>All</td><td><b>Get anything and everything about the target.</b><br><br>All SpiderFoot modules will be enabled (slow) but every possible piece of information about the target will be obtained and analysed.<br><br></td></tr>
-            <tr><td><input type=radio name='usecase' value='Footprint' id="usecase_footprint"></td><td>Footprint</td><td><b>Understand what information this target exposes to the Internet.</b><br><br>Gain an understanding about the target's network perimeter, associated identities and other information that is obtained through a lot of web crawling and search engine use.
-             <br><br></td></tr>
-            <tr><td><input type=radio name='usecase' value='Investigate' id="usecase_investigate"></td><td>Investigate</td><td><b>Best for when you suspect the target to be malicious but need more information.</b><br><br>Some basic footprinting will be performed in addition to querying of blacklists and other sources that may have information about your target's maliciousness.
+            <tr><td><input type=radio name='usecase' value='Reputation' id="usecase_reputation"></td><td>Reputation</td><td><b>Gather what, if any, threatlists this IP or domain resides on.</b><br><br>Gather information about the target's reputation across nearly 30 threat lists. Note that lack of results with this scan does not necessarily mean the traffic is non-malicious.
             <br><br></td></tr>
-            <tr><td><input type=radio name='usecase' value='Passive' id="usecase_passive"></td><td>Passive</td><td><b>When you don't want the target to even suspect they are being investigated.</b><br><br>As much information will be gathered without touching the target or their affiliates, therefore only modules that do not touch the target will be enabled.
-
+            <tr><td><input type=radio name='usecase' value='Passive' id="usecase_passive"></td><td>Passive</td><td><b>Perform passive information gathering about an IP or domain.</b><br><br>Gather information about an IP or domain. This provides additional detail above and beyond the "Quick" search.
+            <br><br></td></tr> 
+            <tr><td><input type=radio name='usecase' value='Quick' id="usecase_quick"></td><td>Quick</td><td><b>A quick IP/Domain information search.</b><br><br>Gather information on information about the target such as geolocation, dns information, whois, and open ports (via shodan). 
+            <br><br></td></tr>
         </td></tr>
         </table>
 
